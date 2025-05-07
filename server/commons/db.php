@@ -1,19 +1,19 @@
-<?php
-$host = "localhost";
-$port = '5432';
-$dbname = "Traductor";
-$user = "postgres";
-$password = "1234";
 
-//$host = 'localhost';
-//$port = '5432';
-//$user = 'postgres';
-//$pass = '1234';
-//$db_name = 'task_tool';
+
+
+<?php
+$host = 'localhost';
+$port = '5432';
+$db = 'Traductor';
+$user = 'postgres';
+$pass = '1234';
+
+$dsn = "pgsql:host=$host;dbname=$db";
 
 try {
-    $pdo = new PDO("pgsql:host=$host;dbname=$dbname", $user, $password);
+    $pdo = new PDO($dsn, $user, $pass, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
 } catch (PDOException $e) {
     die("Error de conexión: " . $e->getMessage());
 }
 ?>
+

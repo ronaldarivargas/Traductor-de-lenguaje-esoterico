@@ -1,30 +1,31 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Traductor de Escrituras Antiguas</title>
-  <script src="assets/script.js" defer></script>
+  <meta charset="UTF-8" />
+  <title>Solicitud de Traducción</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>Solicitar traducción</h1>
-  <form id="formTraduccion" method="POST" action="enviar.php">
-    <label>Nombre:</label><br>
-    <input type="text" name="nombre" required><br>
+  <h1>Traductor de Escrituras Antiguas</h1>
+  <form id="formulario" method="POST" action="enviar.php">
+    <label for="name">Nombre:</label>
+    <input type="text" name="name" required><br>
 
-    <label>Correo:</label><br>
-    <input type="email" name="correo" required><br>
+    <label for="email">Correo electrónico:</label>
+    <input type="email" name="email" required><br>
 
-    <label>Tipo de escritura:</label><br>
-    <select name="tipo" required>
+    <label for="cod_typ_writing">Tipo de escritura:</label>
+    <select name="cod_typ_writing" required>
       <option value="1">Runas</option>
       <option value="2">Jeroglíficos</option>
-      <option value="3">Notaciones alquímicas</option>
+      <option value="3">Alquimia</option>
     </select><br>
 
-    <label>Texto para traducir:</label><br>
-    <textarea name="contenido" required></textarea><br>
+    <label for="source_Content">Texto original:</label><br>
+    <textarea name="source_Content" rows="5" cols="50" required></textarea><br>
 
-    <button type="submit">Enviar solicitud</button>
+    <button type="submit">Enviar Solicitud</button>
   </form>
 </body>
 </html>
+
