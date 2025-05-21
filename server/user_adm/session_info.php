@@ -11,7 +11,7 @@ if (!$db) {
 
 if (isset($_SESSION['user_id'])) {
     echo json_encode([
-        'user_id' => $_SESSION['id_usr'],
+        'user_id' => $_SESSION['id_usr_ad'],
         'user_name' => $_SESSION['name']
     ]);
 } else {

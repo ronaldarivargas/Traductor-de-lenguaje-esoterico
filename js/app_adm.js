@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const contenidoPrincipal = document.getElementById('contenido');
     const loginAviso = document.getElementById('mensaje-login');
 
-    fetch('server/user/session_info.php')
+    fetch('server/user_adm/session_info.php')
         .then(res => res.json())
         .then(data => {
             if (data.user_id) {
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (loginAviso) {
                     loginAviso.innerHTML = '<p style="color:red;">Inicia sesión para acceder al sistema</p>';
                 } else {
-                    window.location.href = 'server/user/login.php';
+                    window.location.href = 'server/user_adm/login.php';
                 }
             }
         })

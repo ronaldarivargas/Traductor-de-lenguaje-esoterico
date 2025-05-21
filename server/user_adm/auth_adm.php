@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'] ?? '';
     $password = $_POST['password'] ?? '';
 
-    $stmt = $db->prepare("SELECT * FROM translator.usr WHERE email = :email AND password = :pwd");
+    $stmt = $db->prepare("SELECT * FROM translator.usr_admin WHERE email = :email AND password = :pwd");
     $stmt->execute([
         'email' => $email,
         'pwd' => $password
@@ -15,12 +15,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if (isset($user)) {
-        $_SESSION['user_id'] = $user['id_usr'];
+        $_SESSION['user_id'] = $user['id_usr_ad'];
         $_SESSION['user_name'] = $user['name'];
         header('Location: /Traductor-de-lenguaje-esoterico/index.html');
         exit;
     } else {
-        header('Location: login.php?error=1');
+        header('Location: server/user_adm/login.php?error=1');
         exit;
     }
 }

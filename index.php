@@ -15,5 +15,9 @@ session_start();
     </div>
     <p><a href="server/user/logout.php">Cerrar sesión</a></p>
     <script src="js/app.js"></script>
+    <p><a href="server/user_adm/logout.php">Cerrar sesión adm</a></p>
+    <script src="js/app_adm.js"></script>
+    
+    
 </body>
 </html>
