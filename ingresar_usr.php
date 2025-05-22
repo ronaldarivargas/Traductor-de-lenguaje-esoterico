@@ -1,10 +1,26 @@
+<?php
+session_start();
+
+// Verificar que haya sesión y sea un administrador
+if (!isset($_SESSION['user_id']) || $_SESSION['rol'] !== 'admin') {
+    header('Location: server/user/login.php');
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Ingresar un nuevo usuario - Traductor de Lenguaje Esotérico</title>
+    <title>Gestión de Usuarios</title>
+    <!--<link rel="stylesheet" href="css/admin.css">  opcional -->
 </head>
 <body>
+    <form action="server/user/logout.php" method="get">
+        <button type="submit" class="delete-btn left-align">Cerrar sesión</button>
+    </form>
+
+    <br><br><br>
     <h2>Formulario para crear nuevo usuario</h2>
     <form id="user-form">
         <input id="name" placeholder="Nombre" required>
@@ -17,12 +33,14 @@
 
     <h2>Gestión de usuarios existentes</h2>
     <button id="btn-ver-usuarios">Mostrar usuarios</button>
-    <ul id="user-list" style="display:none;"></ul>
+    <ul id="user-list"></ul>
 
-    <script src="/Traductor-de-lenguaje-esoterico/js/client_crud.js"></script>
-    <hr>
-    <button onclick="window.location.href='index.php'">Volver a inicio</button>
+    
+    <script src="js/client_crud.js"></script>
 </body>
 </html>
+
+
+
 
 

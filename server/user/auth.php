@@ -1,26 +1,45 @@
 <?php
-// login.php
 session_start();
 require '../commons/db.php';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $email = $_POST['email'] ?? '';
-    $password = $_POST['password'] ?? '';
+$email = $_POST['email'] ?? '';
+$password = $_POST['password'] ?? '';
 
-    $stmt = $db->prepare("SELECT * FROM translator.usr WHERE email = :email AND password = :pwd");
-    $stmt->execute([
-        'email' => $email,
-        'pwd' => $password
-    ]);
-    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+// 1. Buscar en tabla de usuarios normales
+$stmt = $db->prepare("SELECT * FROM translator.usr WHERE email = :email");
+$stmt->execute([':email' => $email]);
+$user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if (isset($user)) {
-        $_SESSION['user_id'] = $user['id_usr'];
-        $_SESSION['user_name'] = $user['name'];
-        header('Location: /Traductor-de-lenguaje-esoterico/index.html');
-        exit;
-    } else {
-        header('Location: login.php?error=1');
-        exit;
-    }
+if ($user && password_verify($password, $user['password'])) {
+    $_SESSION['user_id'] = $user['id_usr'];
+    $_SESSION['user_name'] = $user['name'];
+    $_SESSION['rol'] = 'usuario';
+    
+    /*echo '<pre>';
+    print_r($_SESSION);
+    exit;*/
+
+    header('Location: ../../nueva_traduccion.php');
+    exit;
 }
+
+// 2. Buscar en tabla de administradores
+$stmt = $db->prepare("SELECT * FROM translator.usr_admin WHERE email = :email");
+$stmt->execute([':email' => $email]);
+$admin = $stmt->fetch(PDO::FETCH_ASSOC);
+
+if ($admin && password_verify($password, $admin['password'])) {  // ¡Cuidado si no está hasheado!
+    $_SESSION['user_id'] = $admin['id_usr'];
+    $_SESSION['user_name'] = $admin['name'];
+    $_SESSION['rol'] = 'admin';
+    /*echo '<pre>';
+    print_r($_SESSION);
+    exit;*/
+
+    header('Location: ../../ingresar_usr.php');
+    exit;
+}
+
+// 3. No encontrado en ninguna tabla
+header('Location: login.php?error=1');
+exit;
