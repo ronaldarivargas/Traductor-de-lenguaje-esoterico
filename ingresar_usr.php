@@ -13,7 +13,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['rol'] !== 'admin') {
 <head>
     <meta charset="UTF-8">
     <title>Gestión de Usuarios</title>
-    <!--<link rel="stylesheet" href="css/admin.css">  opcional -->
+    <link rel="stylesheet" href="css/admin.css">  
 </head>
 <body>
     <form action="server/user/logout.php" method="get">

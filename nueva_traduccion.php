@@ -13,7 +13,10 @@ if (!isset($_SESSION['user_id']) || $_SESSION['rol'] !== 'usuario') {
 <head>
     <meta charset="UTF-8">
     <title>Ingresar Traducción</title>
-    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/trad_usr.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
 </head>
 <body>
     <form action="server/user/logout.php" method="post">
