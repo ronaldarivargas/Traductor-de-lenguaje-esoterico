@@ -72,6 +72,8 @@ document.addEventListener('DOMContentLoaded', () => {
             alert(response.error); // Muestra mensaje si ya existe el correo
             return;
             }
+            alert(response.message || "Usuario actualizado");
+    
             form.reset();
             isEditing = false;
             editingId = null;
@@ -98,5 +100,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     checkSession();
 });
+
 
 
