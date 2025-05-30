@@ -1,0 +1,15 @@
+Hostname: dpg-d0sh3iili9vc73d05l70-a
+
+Port: 5432
+
+Database: traductor_db_esoterico
+
+Username: traductor_db_esoterico_user
+
+Password: bKrkahkdzLf1Jqt5Tm049ZGTVAe924lm
+
+Internal Database URL: postgresql://traductor_db_esoterico_user:bKrkahkdzLf1Jqt5Tm049ZGTVAe924lm@dpg-d0sh3iili9vc73d05l70-a/traductor_db_esoterico
+
+External Database URL: postgresql://traductor_db_esoterico_user:bKrkahkdzLf1Jqt5Tm049ZGTVAe924lm@dpg-d0sh3iili9vc73d05l70-a.oregon-postgres.render.com/traductor_db_esoterico
+
+PSQL Command: PGPASSWORD=bKrkahkdzLf1Jqt5Tm049ZGTVAe924lm psql -h dpg-d0sh3iili9vc73d05l70-a.oregon-postgres.render.com -U traductor_db_esoterico_user traductor_db_esoterico
