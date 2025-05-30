@@ -11,7 +11,13 @@ $host     = getenv('DB_HOST');
 $port     = getenv('DB_PORT') ?: '5432';
 $user     = getenv('DB_USER');
 $pass     = getenv('DB_PASS');
-$db_name  = getenv('DB_NAME') ;
+$db_name  = getenv('DB_NAME');
+
+/*$host     = getenv('DB_HOST') ?: 'localhost';
+$port     = getenv('DB_PORT') ?: '5432';
+$user     = getenv('DB_USER') ?: 'postgres';
+$pass     = getenv('DB_PASS') ?: '1234';
+$db_name  = getenv('DB_NAME') ?: 'Traductor';*/
 
 $options = [
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
