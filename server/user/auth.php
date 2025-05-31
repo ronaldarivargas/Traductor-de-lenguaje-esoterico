@@ -43,3 +43,4 @@ if ($admin && password_verify($password, $admin['password'])) {  // ¡Cuidado si
 // 3. No encontrado en ninguna tabla
 header('Location: login.php?error=1');
 exit;
+?>
