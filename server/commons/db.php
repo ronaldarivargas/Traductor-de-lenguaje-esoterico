@@ -24,7 +24,6 @@ try {
     echo 'Error en la conexión ' . $e->getMessage();
     exit();
 }
-
+/*
+bKrkahkdzLf1Jqt5Tm049ZGTVAe924lm.render.com:5432*/
 ?>
-
-bKrkahkdzLf1Jqt5Tm049ZGTVAe924lm.render.com:5432
