@@ -1,6 +1,6 @@
 <?php
 
-$host     = getenv('DB_HOST') ?: 'localhost';
+$host     = getenv('DB_HOST') ?: '';
 $port     = getenv('DB_PORT') ?: '5432';
 $user     = getenv('DB_USER') ?: 'postgres';
 $pass     = getenv('DB_PASS') ?: '';
@@ -26,3 +26,5 @@ try {
 }
 
 ?>
+
+bKrkahkdzLf1Jqt5Tm049ZGTVAe924lm.render.com:5432
